@@ -19,9 +19,9 @@ export class RegisterRecruiterComponent implements OnInit {
   }
 
   onSubmit(): void {
+    console.log(this.form);
     this.authService.register_recruiter(this.form).subscribe(
       data => {
-        console.log(data);
         this.isSuccessful = true;
         this.isSignUpFailed = false;
       },

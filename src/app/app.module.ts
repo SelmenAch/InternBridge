@@ -16,6 +16,7 @@ import { BoardCandidateComponent } from './board-candidate/board-candidate.compo
 
 import { authInterceptorProviders } from './_helpers/auth.interceptor';
 import { RegisterRecruiterComponent } from './register-recruiter/register-recruiter.component';
+import { LoginRecruiterComponent } from './login-recruiter/login-recruiter.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { RegisterRecruiterComponent } from './register-recruiter/register-recrui
     BoardAdminComponent,
     BoardRecruiterComponent,
     BoardCandidateComponent,
-    RegisterRecruiterComponent
+    RegisterRecruiterComponent,
+    LoginRecruiterComponent
   ],
   imports: [
     BrowserModule,

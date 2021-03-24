@@ -10,17 +10,19 @@ import { BoardRecruiterComponent } from './board-recruiter/board-recruiter.compo
 import { BoardAdminComponent } from './board-admin/board-admin.component';
 import { RegisterRecruiterComponent } from './register-recruiter/register-recruiter.component';
 import { AuthGuardService } from './_services/auth-guard.service';
+import { AuthGuardRecruiterService } from './_services/auth-guard-recruiter.service';
+import { LoginRecruiterComponent } from './login-recruiter/login-recruiter.component';
 
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'candidate/login', component: LoginComponent },
   { path: 'candidate/register', component: RegisterCandidateComponent },
-  { path: 'recruiter/login', component: LoginComponent },
+  { path: 'recruiter/login', component: LoginRecruiterComponent },
   { path: 'recruiter/register', component: RegisterRecruiterComponent },
   { path: 'profile', component: ProfileComponent},
   { path: 'candidate', component: BoardCandidateComponent, canActivate:[AuthGuardService] },
-  { path: 'recruiter', component: BoardRecruiterComponent, canActivate:[AuthGuardService] },
+  { path: 'recruiter', component: BoardRecruiterComponent, canActivate:[AuthGuardRecruiterService] },
   { path: 'admin', component: BoardAdminComponent, canActivate:[AuthGuardService] },
   { path: '', redirectTo: 'home', pathMatch: 'full' }
 ];

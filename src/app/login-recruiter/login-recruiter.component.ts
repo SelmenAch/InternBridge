@@ -1,15 +1,14 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { AuthService } from '../_services/auth.service';
 import { TokenStorageService } from '../_services/token-storage.service';
-import { Router } from '@angular/router';
-
 
 @Component({
-  selector: 'app-login',
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  selector: 'app-login-recruiter',
+  templateUrl: './login-recruiter.component.html',
+  styleUrls: ['./login-recruiter.component.css']
 })
-export class LoginComponent implements OnInit {
+export class LoginRecruiterComponent implements OnInit {
 
   form: any = {};
   isLoggedIn = false;
@@ -28,7 +27,7 @@ export class LoginComponent implements OnInit {
   }
 
   onSubmit(): void {
-    this.authService.condidate_login(this.form).subscribe(
+    this.authService.recruiter_login(this.form).subscribe(
       data => {
         this.tokenStorage.saveToken(data.accessToken);
         this.tokenStorage.saveUser(data);
@@ -56,3 +55,4 @@ export class LoginComponent implements OnInit {
   }
 
 }
+

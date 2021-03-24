@@ -58,6 +58,28 @@
         </div>
         </div>
 
+         <div class="form-group">
+        <div class="input-icon">
+        <i class="ti-email"></i>
+        <input id="phoneNumber" class="form-control" name="PhoneNumber" placeholder="Phone Number" type="text" [(ngModel)]="form.phoneNumber" required phoneNumber #phoneNumber="ngModel">
+        </div>
+        <div class="alert-danger" *ngIf="phoneNumber.submitted && PhoneNumber.invalid">
+          <div *ngIf="phoneNumber.errors.required">Phone Number is required</div>
+          <div *ngIf="phoneNumber.errors.number">
+            Phone Number must be a Number
+          </div>
+        </div>
+        </div>
+
+         <div class="form-group">
+        <div class="input-icon">
+        <i class="ti-email"></i>
+        <input id="sender-email" class="form-control" placeholder="dateOfBirth" type="date" name="dateOfBirth" [(ngModel)]="form.dateOfBirth" required dateOfBirth #dateOfBirth="ngModel">
+        </div>
+        <div class="alert-danger" *ngIf="dateOfBirth.submitted && dateOfBirth.invalid">
+          <div *ngIf="dateOfBirth.errors.required">Date of Birth is required</div>
+        </div>
+        </div>
         <div class="form-group">
         <div class="input-icon">
         <i class="ti-lock"></i>

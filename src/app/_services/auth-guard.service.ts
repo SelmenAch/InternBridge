@@ -8,13 +8,15 @@ export class AuthGuardService implements CanActivate {
     constructor( public router: Router, private tokenStorage: TokenStorageService) { }
 
     canActivate(): boolean {
-
-      if (!this.tokenStorage.getToken()) {
-            this.router.navigate(['candidate/login']);
-            return false;
+      
+      if (this.tokenStorage.getUser().role === "candidate" && this.tokenStorage.getToken()) {
+            /*this.router.navigate(['candidate/login']);
+            return false;*/
+            return true;
         }
-      else 
-      return true;
-        
+      else {
+      this.router.navigate(['candidate/login']);
+      return false;
+      }
     }
 }
