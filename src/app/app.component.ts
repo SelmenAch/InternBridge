@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { LoginComponent } from './candidate/login/login.component';
+import { LoginRecruiterComponent } from './recruiter/login-recruiter/login-recruiter.component';
 import { TokenStorageService } from './_services/token-storage.service';
 
 @Component({
@@ -7,32 +9,30 @@ import { TokenStorageService } from './_services/token-storage.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-  private roles: string[];
   isLoggedIn = false;
   showAdminBoard = false;
   showRecruiterBoard = false;
   showCandidateBoard = false;
   username: string;
 
-  constructor(private tokenStorageService: TokenStorageService) { }
+  constructor(private tokenStorage: TokenStorageService, private candidateLogin: LoginComponent, private recruiterLogin: LoginRecruiterComponent) { }
 
   ngOnInit(): void {
-    this.isLoggedIn = !!this.tokenStorageService.getToken();
+    this.isLoggedIn = !!this.tokenStorage.getToken();
 
     if (this.isLoggedIn) {
-      const user = this.tokenStorageService.getUser();
-      this.roles = user.roles;
-
-      this.showAdminBoard = this.roles.includes('ROLE_ADMIN');
-      this.showRecruiterBoard = this.roles.includes('ROLE_RECRUITER');
-	    this.showCandidateBoard = this.roles.includes('ROLE_CANDIDATE');
-
+      const user = this.tokenStorage.getUser();
+            
+      this.recruiterLogin.ngOnInit();
+      this.candidateLogin.ngOnInit();
+      this.showRecruiterBoard = this.recruiterLogin.isRecruiterLoggedIn;
+	    this.showCandidateBoard = this.candidateLogin.isCandidateLoggedIn;
       this.username = user.username;
     }
   }
 
   logout(): void {
-    this.tokenStorageService.signOut();
+    this.tokenStorage.signOut();
     window.location.reload();
   }
 }

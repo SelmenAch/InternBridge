@@ -11,7 +11,7 @@ export class AuthGuardRecruiterService implements CanActivate{
   
   canActivate(): boolean {
     
-    if (this.tokenStorage.getUser().role === "recruiter" && this.tokenStorage.getToken()) {
+    if (this.tokenStorage.getToken() && this.tokenStorage.getRole() == "Recruiter") { 
       /*this.router.navigate(['candidate/login']);
       return false;*/
       return true;

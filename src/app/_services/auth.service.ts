@@ -15,16 +15,16 @@ export class AuthService {
 
   constructor(private http: HttpClient) { }
 
-  condidate_login(credentials): Observable<any> {
+  candidate_login(credentials): Observable<any> {
     return this.http.post(AUTH_API + 'candidate_signin', {
-      username: credentials.username,
+      email: credentials.email,
       password: credentials.password
     }, httpOptions);
   }
 
   recruiter_login(credentials): Observable<any> {
     return this.http.post(AUTH_API + 'recruiter_signin', {
-      company: credentials.company,
+      email: credentials.companyEmail,
       password: credentials.password
     }, httpOptions);
   }
@@ -32,23 +32,22 @@ export class AuthService {
   register_candidate(user): Observable<any> {
     return this.http.post(AUTH_API + 'candidate_signup', {
       username: user.username,
+      firstName: user.firstName,
+      lastName: user.lastName,
       email: user.email,
-      password: user.password,
-      phoneNumber: user.phoneNumber,
-      dateOfBirth: user.dateOfBirth
+      password: user.password
     }, httpOptions);
   }
 
-  register_recruiter(user): Observable<any> {
+  register_recruiter(recruiter): Observable<any> {
     return this.http.post(AUTH_API + 'recruiter_signup', {
-      company: user.company,
-      password: user.password,
-      address1: user.address1,
-      address2: user.address2,
-      city: user.city,
-      province: user.province,
-      zip: user.zip,
-      country: user.country
+      companyName: recruiter.companyName,
+      companyEmail: recruiter.companyEmail,
+      address: recruiter.address,
+      city: recruiter.city,
+      province: recruiter.province,
+      country: recruiter.country,
+      password: recruiter.password
     }, httpOptions);
   }
 }

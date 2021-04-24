@@ -35,7 +35,7 @@ h3 {
   line-height: 1.4em;
 }
 p {
-  font-size: 14px;
+  font-size: 16px;
   font-family: 'Nunito Sans', sans-serif;
   margin: 0;
   line-height: 24px;
@@ -625,10 +625,11 @@ a:focus {
   color: #444;
 }
 .main-navigation .float-right li a {
-  color: #ff4f57 !important;
+  color: #ff4f57;
   border: 1px solid #ff4f57;
 }
-.main-navigation .float-right li a:hover {
+.main-navigation .float-right li a:hover,
+.main-navigation .float-right li a:active {
   color: #fff!important;
 }
 .main-navigation .navbar-nav .dropdown {
@@ -2266,7 +2267,7 @@ footer {
   margin-bottom: 10px;
 }
 .my-resume .item h5 {
-  font-size: 13px;
+  font-size: 15px;
   color: #888;
   text-transform: uppercase;
   letter-spacing: 0.5px;
@@ -2294,7 +2295,7 @@ footer {
   border-radius: 4px;
 }
 .my-resume .author-resume .author-info {
-  margin-left: 140px;
+  margin-left: 160px;
 }
 .my-resume .author-resume .author-info h3 {
   font-size: 16px;
@@ -3151,6 +3152,7 @@ blockquote p a:hover {
   border-radius: 50px;
   display: inline-block;
   height: 32px;
+  margin-right: 10px;
 }
 .social-link .facebook:hover {
   color: #3b5998;
@@ -3159,6 +3161,10 @@ blockquote p a:hover {
 .social-link .twitter:hover {
   color: #55acee;
   border-color: #55acee;
+}
+.social-link .github:hover {
+  color: #040204;
+  border-color: #040204;
 }
 .social-link .google:hover {
   color: #dd4b39;
@@ -3376,13 +3382,12 @@ blockquote p a:hover {
     line-height: 70px;
   }
 }
-/*
+
 #cd-login,
-#cd-signup,
 #cd-reset-password {
   display: none;
 }
-*/
+
 #cd-login.is-selected,
 #cd-signup.is-selected,
 #cd-reset-password.is-selected {

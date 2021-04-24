@@ -51,6 +51,9 @@ a:hover,a:focus{
 .navbar-default .float-right li a:hover{
   border-color: #FF4F57;
 }
+.main-navigation .float-right li a.active{
+  color: #FFF!important;
+}
 .main-navigation .float-right li a{
   border-color: #FF4F57;
   color: #FF4F57!important;
