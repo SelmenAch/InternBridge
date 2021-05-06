@@ -18,7 +18,7 @@ import { EditCvComponent } from './candidate/edit-cv/edit-cv.component';
 import { ApplicationsComponent } from './candidate/applications/applications.component';
 import { ChangePasswordRecruiterComponent } from './recruiter/change-password-recruiter/change-password-recruiter.component';
 import { EditProfileComponent } from './recruiter/edit-profile/edit-profile.component';
-
+import { TestComponent } from './test/test.component' ;
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -36,7 +36,8 @@ const routes: Routes = [
   { path: 'candidate/applications', component: ApplicationsComponent },
   { path: 'recruiter/change-password', component: ChangePasswordRecruiterComponent },
   { path: 'recruiter/edit-profile', component: EditProfileComponent },
-  { path: '', redirectTo: 'home', pathMatch: 'full' }
+  {path: 'test' , component:TestComponent },
+  { path: '', redirectTo: 'home', pathMatch: 'full' },
 ];
 
 @NgModule({

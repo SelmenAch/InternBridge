@@ -1,0 +1,14 @@
+<div class="container">
+  <header class="jumbotron">
+    <form class="form-group" (ngSubmit)="onSubmit()" >
+    <div *ngIf=ok>
+      <div *ngFor="let d of data">
+        <ul><h3>{{ d[0] }}</h3></ul>
+        <li *ngFor="let o of d[1]"><input type="radio"> {{ o }}</li>
+      </div>
+      <br/>
+      <button class="btn btn-warning btn-lg btn-block m-5">Submit</button>
+    </div>
+    </form>
+  </header>
+</div>

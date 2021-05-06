@@ -28,6 +28,7 @@ import { EditProfileComponent } from './recruiter/edit-profile/edit-profile.comp
 import { ChangePasswordRecruiterComponent } from './recruiter/change-password-recruiter/change-password-recruiter.component';
 import { OffersComponent } from './recruiter/offers/offers.component';
 import { PostOfferComponent } from './recruiter/post-offer/post-offer.component';
+import { TestComponent } from './test/test.component';
 
 
 
@@ -50,7 +51,8 @@ import { PostOfferComponent } from './recruiter/post-offer/post-offer.component'
     EditProfileComponent,
     ChangePasswordRecruiterComponent,
     OffersComponent,
-    PostOfferComponent
+    PostOfferComponent,
+    TestComponent
   ],
   imports: [
     BrowserModule,
