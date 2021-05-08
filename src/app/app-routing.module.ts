@@ -36,7 +36,7 @@ const routes: Routes = [
   { path: 'candidate/applications', component: ApplicationsComponent },
   { path: 'recruiter/change-password', component: ChangePasswordRecruiterComponent },
   { path: 'recruiter/edit-profile', component: EditProfileComponent },
-  {path: 'test' , component:TestComponent },
+  {path: 'offers/:id/test' , component:TestComponent },
   { path: '', redirectTo: 'home', pathMatch: 'full' },
 ];
 
