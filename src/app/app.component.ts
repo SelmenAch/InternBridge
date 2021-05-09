@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { LoginAdminComponent } from './admin/login-admin/login-admin.component';
 import { LoginComponent } from './candidate/login/login.component';
 import { LoginRecruiterComponent } from './recruiter/login-recruiter/login-recruiter.component';
 import { TokenStorageService } from './_services/token-storage.service';
@@ -15,19 +16,19 @@ export class AppComponent implements OnInit {
   showCandidateBoard = false;
   username: string;
 
-  constructor(private tokenStorage: TokenStorageService, private candidateLogin: LoginComponent, private recruiterLogin: LoginRecruiterComponent) { }
+  constructor(private tokenStorage: TokenStorageService, private candidateLogin: LoginComponent, private recruiterLogin: LoginRecruiterComponent, private adminLogin: LoginAdminComponent) { }
 
   ngOnInit(): void {
     this.isLoggedIn = !!this.tokenStorage.getToken();
 
     if (this.isLoggedIn) {
-      const user = this.tokenStorage.getUser();
-            
+
       this.recruiterLogin.ngOnInit();
       this.candidateLogin.ngOnInit();
+      this.adminLogin.ngOnInit();
       this.showRecruiterBoard = this.recruiterLogin.isRecruiterLoggedIn;
 	    this.showCandidateBoard = this.candidateLogin.isCandidateLoggedIn;
-      this.username = user.username;
+      this.showAdminBoard = this.adminLogin.isAdminLoggedIn;
     }
   }
 

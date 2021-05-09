@@ -20,11 +20,9 @@ export class ChangePasswordComponent implements OnInit {
 
   ngOnInit(): void {
 
-    if (this.tokenStorage.getToken() && this.tokenStorage.getRole() == "Candidate") {
-      this.userdata = JSON.parse(this.tokenStorage.getUser());
-      this.isCandidateLoggedIn = true;
-    }
-
+    this.userdata = JSON.parse(this.tokenStorage.getUser());
+    this.isCandidateLoggedIn = true;
+    
   }
 
   logout(): void {

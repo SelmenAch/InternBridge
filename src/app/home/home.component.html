@@ -26,7 +26,8 @@
   <div class="search-category-container">
   <label class="styled-select">
   <select class="dropdown-product selectpicker">
-  <option>All Categories</option>
+  <option>Information Technology</option>
+  <!--
   <option>Finance</option>
   <option>IT & Engineering</option>
   <option>Education/Training</option>
@@ -35,6 +36,7 @@
   <option>Healthcare</option>
   <option>Science</option>
   <option>Food Services</option>
+  -->
   </select>
   </label>
   </div>
@@ -47,9 +49,11 @@
   </div>
   <div class="popular-jobs">
   <b>Popular Keywords: </b>
-  <a href="#">Web Design</a>
-  <a href="#">Manager</a>
-  <a href="#">Programming</a>
+  <a>Angular</a>
+  <a>Java</a>
+  <a>C++</a>
+  <a>Python</a>
+  <a>DevOps</a>
   </div>
   </div>
   </div>
@@ -58,153 +62,44 @@
   </section>
   
   </div>
-
-
-<!-- 
-  <nav class="navbar navbar-expand navbar-dark bg-dark">
-    <a href="#" class="navbar-brand">bezKoder</a>
-    <ul class="navbar-nav mr-auto" routerLinkActive="active">
-      <li class="nav-item">
-        <a href="/home" class="nav-link" routerLink="home">Home </a>
-      </li>
-      <li class="nav-item" *ngIf="showAdminBoard">
-        <a href="/admin" class="nav-link" routerLink="admin">Admin Board</a>
-      </li>
-      <li class="nav-item" *ngIf="showModeratorBoard">
-        <a href="/mod" class="nav-link" routerLink="mod">Moderator Board</a>
-      </li>
-      <li class="nav-item">
-        <a href="/user" class="nav-link" *ngIf="isLoggedIn" routerLink="user">User</a>
-      </li>
-    </ul>
-
-    <ul class="navbar-nav ml-auto" *ngIf="!isLoggedIn">
-      <li class="nav-item">
-        <a href="/register" class="nav-link" routerLink="register">Sign Up</a>
-      </li>
-      <li class="nav-item">
-        <a href="/login" class="nav-link" routerLink="login">Login</a>
-      </li>
-    </ul>
-
-    <ul class="navbar-nav ml-auto" *ngIf="isLoggedIn">
-      <li class="nav-item">
-        <a href="/profile" class="nav-link" routerLink="profile">{{ username }}</a>
-      </li>
-      <li class="nav-item">
-        <a href class="nav-link" (click)="logout()">LogOut</a>
-      </li>
-    </ul>
-  </nav>
-
-  -->
     
   <section class="find-job section">
   <div class="container">
-  <h2 class="section-title">Recent Internships</h2>
+  <h1 class="section-title">Recent Internships</h1>
+
   <div class="row">
   <div class="col-md-12">
-  <div class="job-list">
+
+  <div class="job-list" *ngFor="let offer of offers | paginate: { itemsPerPage: 6, currentPage: page }">
   <div class="thumb">
-  <a href="job-details.html"><img src="assets/img/jobs/img-1.jpg" alt=""></a>
+  <a><img src="assets/img/logo.png" alt="company-logo"></a>
   </div>
   <div class="job-list-content">
-  <h4><a href="job-details.html">Need a web designer</a><span class="full-time">Full-Time</span></h4>
-  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum quaerat aut veniam molestiae atque dolorum omnis temporibus consequuntur saepe. Nemo atque consectetur saepe corporis odit in dicta reprehenderit, officiis, praesentium?</p>
+  <h4><a [routerLink]="['/internship', offer._id]">{{offer.title}}</a><span class="full-time">{{offer.type}}</span></h4>
+  <p>{{offer.description}}</p>
   <div class="job-tag">
   <div class="pull-left">
   <div class="meta-tag">
-  <span><a href="browse-categories.html"><i class="ti-brush"></i>Art/Design</a></span>
-  <span><i class="ti-location-pin"></i>Washington, USA</span>
-  <span><i class="ti-time"></i>60/Hour</span>
+  <span><a><i class="ti-desktop"></i>{{offer.category}}</a></span>
+  <span><i class="ti-location-pin"></i>{{offer.location}}</span>
+  <span><i class="fa fa-calendar"></i>{{offer.createdDate}}</span>
   </div>
   </div>
   <div class="pull-right">
-  <div class="icon">
-  <i class="ti-heart"></i>
-  </div>
-  <a href="job-details.html" class="btn btn-common btn-rm">Apply Job</a>
+  <a [routerLink]="['/internship', offer._id]" class="btn btn-common btn-rm">Internship details</a>
   </div>
   </div>
   </div>
   </div>
-  <div class="job-list">
-  <div class="thumb">
-  <a href="job-details.html"><img src="assets/img/jobs/img-2.jpg" alt=""></a>
-  </div>
-  <div class="job-list-content">
-  <h4><a href="job-details.html">Front-end developer needed</a><span class="full-time">Full-Time</span></h4>
-  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum quaerat aut veniam molestiae atque dolorum omnis temporibus consequuntur saepe. Nemo atque consectetur saepe corporis odit in dicta reprehenderit, officiis, praesentium?</p>
-  <div class="job-tag">
-  <div class="pull-left">
-  <div class="meta-tag">
-  <span><a href="browse-categories.html"><i class="ti-desktop"></i>Technologies</a></span>
-  <span><i class="ti-location-pin"></i>Cupertino, CA, USA</span>
-  <span><i class="ti-time"></i>60/Hour</span>
-  </div>
-  </div>
-  <div class="pull-right">
-  <div class="icon">
-  <i class="ti-heart"></i>
-  </div>
-  <a href="job-details.html" class="btn btn-common btn-rm">Apply Job</a>
-  </div>
-  </div>
-  </div>
-  </div>
-  <div class="job-list">
-  <div class="thumb">
-  <a href="job-details.html"><img src="assets/img/jobs/img-3.jpg" alt=""></a>
-  </div>
-  <div class="job-list-content">
-  <h4><a href="job-details.html">Senior Accountant</a><span class="part-time">Part-Time</span></h4>
-  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum quaerat aut veniam molestiae atque dolorum omnis temporibus consequuntur saepe. Nemo atque consectetur saepe corporis odit in dicta reprehenderit, officiis, praesentium?</p>
-  <div class="job-tag">
-  <div class="pull-left">
-  <div class="meta-tag">
-  <span><a href="browse-categories.html"><i class="ti-home"></i>Finance</a></span>
-  <span><i class="ti-location-pin"></i>Delaware, USA</span>
-  <span><i class="ti-time"></i>60/Hour</span>
-  </div>
-  </div>
-  <div class="pull-right">
-  <div class="icon">
-  <i class="ti-heart"></i>
-  </div>
-  <a href="job-details.html" class="btn btn-common btn-rm">Apply Job</a>
-  </div>
-  </div>
-  </div>
-  </div>
-  <div class="job-list">
-  <div class="thumb">
-  <a href="job-details.html"><img src="assets/img/jobs/img-4.jpg" alt=""></a>
-  </div>
-  <div class="job-list-content">
-  <h4><a href="job-details.html">Fullstack web developer needed</a><span class="full-time">Full-Time</span></h4>
-  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum quaerat aut veniam molestiae atque dolorum omnis temporibus consequuntur saepe. Nemo atque consectetur saepe corporis odit in dicta reprehenderit, officiis, praesentium?</p>
-  <div class="job-tag">
-  <div class="pull-left">
-  <div class="meta-tag">
-  <span><a href="browse-categories.html"><i class="ti-desktop"></i>Technologies</a></span>
-  <span><i class="ti-location-pin"></i>New York, USA</span>
-  <span><i class="ti-time"></i>60/Hour</span>
-  </div>
-  </div>
-  <div class="pull-right">
-  <div class="icon">
-  <i class="ti-heart"></i>
-  </div>
-  <a href="job-details.html" class="btn btn-common btn-rm">Apply Job</a>
-  </div>
-  </div>
-  </div>
-  </div>
+
+  
   </div>
   <div class="col-md-12">
-  <div class="showing pull-left">
-  <a href="#">Showing <span>6-10</span> Of 24 Jobs</a>
-  </div>
+  
+    <ul class="pagination pull-right">
+    <pagination-controls (pageChange)="page = $event"></pagination-controls>
+    </ul>
+  <!-- 
   <ul class="pagination pull-right">
   <li class="active"><a href="#" class="btn btn-common"><i class="ti-angle-left"></i> prev</a></li>
   <li><a href="#">1</a></li>
@@ -214,7 +109,9 @@
   <li><a href="#">5</a></li>
   <li class="active"><a href="#" class="btn btn-common">Next <i class="ti-angle-right"></i></a></li>
   </ul>
+  -->
   </div>
+
   </div>
   </div>
   </section>
@@ -322,7 +219,7 @@
     <section id="service-main" class="section">
 
       <div class="container">
-      <h2 class="section-title">How does it work ?</h2>
+      <h1 class="section-title">How does it work ?</h1>
       <div class="row">
       <div class="col-sm-6 col-md-4">
       <div class="service-item">
@@ -331,10 +228,10 @@
       </i>
       </div>
       <h2>
-      Search Miloins of jobs
+      Search for offers
       </h2>
       <p>
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Debitis eligendi consequuntur assumenda perferendis natus dolorem facere mollitia eius.
+      Depending on your technical skills and your profile, search for available offers and find the suitable internship that you deserve. 
       </p>
       </div>
       
@@ -343,28 +240,28 @@
       
       <div class="service-item">
       <div class="icon-wrapper">
-      <i class="ti-world">
+      <i class="ti-write">
       </i>
       </div>
       <h2>
-      Location Base Search
+      Apply for internship
       </h2>
       <p>
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Debitis eligendi consequuntur assumenda perferendis natus dolorem facere mollitia eius.
+      Submit your application by passing a test to prove your technical capabilities and to impress the recruiter with a high test score.
       </p>
       </div>
       </div>
       <div class="col-sm-6 col-md-4">
       <div class="service-item">
       <div class="icon-wrapper">
-      <i class="ti-stats-up">
+      <i class="ti-heart">
       </i>
       </div>
       <h2>
-      Top Careers
+      Get in touch 
       </h2>
       <p>
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Debitis eligendi consequuntur assumenda perferendis natus dolorem facere mollitia eius.
+      Once you get accepted, you'll get in touch with the recruiter to set up and start your internship. Good luck!
       </p>
       </div>
       </div>
@@ -375,50 +272,57 @@
   <section id="counter">
     <div class="container">
     <div class="row">
-    <div class="col-md-3 col-sm-6 col-xs-12">
+
+    <div class="col-md-3 col-sm-6 col-xs-12" *ngIf="total_offers">
+    <div class="counting">
+    <div class="icon">
+    <i class="ti-announcement"></i>
+    </div>
+    <div class="desc">
+    <h2>Offers</h2>
+    <h1 class="counter">{{total_offers}}</h1>
+    </div>
+    </div>
+    </div>
+
+    <div class="col-md-3 col-sm-6 col-xs-12" *ngIf="total_candidates">
+    <div class="counting">
+    <div class="icon">
+    <i class="ti-id-badge"></i>
+    </div>
+    <div class="desc">
+    <h2>Candidates</h2>
+    <h1 class="counter">{{total_candidates}}</h1>
+    </div>
+    </div>
+    </div>
+
+    <div class="col-md-3 col-sm-6 col-xs-12" *ngIf="total_recruiters">
     <div class="counting">
     <div class="icon">
     <i class="ti-briefcase"></i>
     </div>
     <div class="desc">
-    <h2>Internships</h2>
-    <h1 class="counter">12050</h1>
+    <h2>Recruiters</h2>
+    <h1 class="counter">{{total_recruiters}}</h1>
     </div>
     </div>
     </div>
+
+
     <div class="col-md-3 col-sm-6 col-xs-12">
-    <div class="counting">
-    <div class="icon">
-    <i class="ti-user"></i>
+      <div class="counting">
+      <div class="icon">
+      <i class="ti-check-box"></i>
+      </div>
+      <div class="desc">
+      <h2>Applications</h2>
+      <h1 class="counter">{{total_applications}}</h1>
+      </div>
+      </div>
     </div>
-    <div class="desc">
-    <h2>Members</h2>
-    <h1 class="counter">10890</h1>
-    </div>
-    </div>
-    </div>
-    <div class="col-md-3 col-sm-6 col-xs-12">
-    <div class="counting">
-    <div class="icon">
-    <i class="ti-write"></i>
-    </div>
-    <div class="desc">
-    <h2>Resumes</h2>
-    <h1 class="counter">700</h1>
-    </div>
-    </div>
-    </div>
-    <div class="col-md-3 col-sm-6 col-xs-12">
-    <div class="counting">
-    <div class="icon">
-    <i class="ti-heart"></i>
-    </div>
-    <div class="desc">
-    <h2>Companies</h2>
-    <h1 class="counter">9050</h1>
-    </div>
-    </div>
-    </div>
+
+
     </div>
     </div>
     </section>

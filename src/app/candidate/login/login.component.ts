@@ -18,9 +18,11 @@ export class LoginComponent implements OnInit {
   constructor(private authService: AuthService, private tokenStorage: TokenStorageService, private router: Router) { }
 
   ngOnInit(): void {
-    if (this.tokenStorage.getToken() && this.tokenStorage.getRole() == "Candidate") {
+
+    if (this.tokenStorage.getToken()  && JSON.parse(this.tokenStorage.getUser()).role == "candidate") {
       this.isCandidateLoggedIn = true;
     }
+  
   }
 
   onSubmit(): void {

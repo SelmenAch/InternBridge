@@ -37,7 +37,8 @@
               "src/assets/extras/owl.theme.css",
               "src/assets/css/slicknav.css",
               "src/assets/css/responsive.css",
-              "src/assets/css/colors/red.css"
+              "src/assets/css/colors/red.css",
+              "src/assets/css/datatables.min.css"
             ],
             "scripts": [
               "./node_modules/jquery/dist/jquery.min.js",
@@ -54,6 +55,7 @@
               "src/assets/js/jquery.themepunch.tools.min.js",
               "src/assets/js/form-validator.min.js",
               "src/assets/js/contact-form-script.js",
+              "src/assets/js/datatables.min.js",
               "src/assets/js/main.js"
             ]
           },
