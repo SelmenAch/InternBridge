@@ -62,5 +62,11 @@ export class UserService {
     }, httpOptions);
   }
 
+  get_profile(id): Observable<any> {
+    return this.http.post(API_URL + 'get_profile', {
+      _id: id
+    }, httpOptions);
+  }
+
 
 }

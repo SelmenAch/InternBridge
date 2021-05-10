@@ -63,7 +63,7 @@
                 <tbody>
                     <tr *ngFor="let application of applications">
                         <td>{{application.offer.title}}</td>
-                        <td>{{application.candidate._id}}</td>
+                        <td><a [routerLink]="['/profile', application.candidate._id]">Profile</a></td>
                         <td>{{application.applyDate}}</td>
                         <td>{{application.test.score}}</td>
                         <td>

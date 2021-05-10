@@ -36,7 +36,7 @@ const routes: Routes = [
   { path: 'candidate/register', component: RegisterCandidateComponent },
   { path: 'recruiter/login', component: LoginRecruiterComponent },
   { path: 'recruiter/register', component: RegisterRecruiterComponent },
-  { path: 'profile', component: ProfileComponent},
+  { path: 'profile/:id', component: ProfileComponent},
   { path: 'candidate', component: BoardCandidateComponent, canActivate:[AuthGuardService] },
   { path: 'recruiter', component: BoardRecruiterComponent, canActivate:[AuthGuardRecruiterService] },
   { path: 'admin', component: BoardAdminComponent, canActivate:[AuthGuardAdminService] },
