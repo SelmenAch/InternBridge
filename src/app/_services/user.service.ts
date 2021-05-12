@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
-const API_URL = 'http://localhost:8000/api/candidate/';
+const API_URL = 'http://localhost:8080/api/candidate/';
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -56,20 +56,17 @@ export class UserService {
     }, httpOptions);
   }
 
-  getPublicContent(): Observable<any> {
-    return this.http.get(API_URL + 'all', { responseType: 'text' });
+  get_applications(id): Observable<any> {
+    return this.http.post(API_URL + 'get_applications', {
+      candidate: id
+    }, httpOptions);
   }
 
-  getCandidateBoard(): Observable<any> {
-    return this.http.get(API_URL + 'candidate', { responseType: 'text' });
+  get_profile(id): Observable<any> {
+    return this.http.post(API_URL + 'get_profile', {
+      _id: id
+    }, httpOptions);
   }
 
-  getRecruiterBoard(): Observable<any> {
-    return this.http.get(API_URL + 'recruiter', { responseType: 'text' });
-  }
-
-  getAdminBoard(): Observable<any> {
-    return this.http.get(API_URL + 'admin', { responseType: 'text' });
-  }
 
 }

@@ -30,7 +30,6 @@ export class CreateCvComponent implements OnInit {
   
   ngOnInit(): void {
 
-    if (this.tokenStorage.getToken() && this.tokenStorage.getRole() == "Candidate") {
       this.isCandidateLoggedIn = true;
       this.userdata = JSON.parse(this.tokenStorage.getUser());
 
@@ -63,7 +62,7 @@ export class CreateCvComponent implements OnInit {
           linkedin: null,
           github: null})])
       })
-    }
+   
 
   }
 

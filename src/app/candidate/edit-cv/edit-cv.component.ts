@@ -28,7 +28,6 @@ export class EditCvComponent implements OnInit {
 
   ngOnInit(): void {
 
-    if (this.tokenStorage.getToken() && this.tokenStorage.getRole() == "Candidate") {
       this.isCandidateLoggedIn = true;
       this.userdata = JSON.parse(this.tokenStorage.getUser());
 
@@ -58,7 +57,7 @@ export class EditCvComponent implements OnInit {
           linkedin: this.userdata.socialLinks[0].linkedin,
           github: this.userdata.socialLinks[0].github})])
       })
-    }
+    
 
   }
 

@@ -16,11 +16,9 @@ export class BoardCandidateComponent implements OnInit {
 
   ngOnInit(): void {
 
-    if (this.tokenStorage.getToken() && this.tokenStorage.getRole() == "Candidate") {
-      this.isCandidateLoggedIn = true;
-      this.userdata = JSON.parse(this.tokenStorage.getUser());
+    this.isCandidateLoggedIn = true;
+    this.userdata = JSON.parse(this.tokenStorage.getUser());
 
-    }
 
   }
 

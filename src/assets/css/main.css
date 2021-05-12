@@ -986,6 +986,33 @@ select > opation:focus {
   background-color: #fff;
   border-color: #fff;
 }
+
+.btn-select {
+  padding: 17px 14px;
+  border-radius: 0px;
+  border: 1px solid #ccc;
+  color: #2d2d2d !important;
+  background: #fff;
+  text-transform: none;
+}
+.btn-select:hover {
+  background-color: #fff;
+  border-color: #ccc;
+}
+
+.btn-cancel {
+  border-radius: 4px;
+  color: #2d2d2d !important;
+  border: 1px solid #2d2d2d;
+  background: #fff;
+  text-transform: none;
+}
+.btn-cancel:hover {
+  background-color: #2d2d2d;
+  color: #fff !important;
+  border-color: #fff;
+}
+
 label {
   margin: 0;
 }
@@ -2127,6 +2154,7 @@ footer {
   padding: 15px;
   display: inline-block;
   margin-bottom: 15px;
+  width: 80%;
 }
 .job-list .thumb {
   float: left;
@@ -2154,7 +2182,7 @@ footer {
 .job-list .job-tag .meta-tag span {
   font-size: 14px;
   color: #999;
-  margin-right: 10px;
+  margin-right: 40px;
 }
 .job-list .job-tag .meta-tag span a {
   color: #999;

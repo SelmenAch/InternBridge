@@ -21,6 +21,7 @@ export class TestComponent implements OnInit {
   greens = [];
   user: any = {};
   keywords :any = [] ;
+  testSubmitted: boolean ;
   constructor(
               public router: Router, private testService : TestService , 
               private tokenStorage: TokenStorageService, 
@@ -33,8 +34,8 @@ export class TestComponent implements OnInit {
   ngOnInit(): void {
     this.user = JSON.parse(this.tokenStorage.getUser());
     this.offerService.getKeywords(this.form._offer).subscribe(keyword => {
-      console.log(keyword.join());
-      this.testService.getTest("php,nodejs,java").subscribe(question => {
+      this.keywords = keyword ;
+      this.testService.getTest(this.keywords.join(',')).subscribe(question => {
         question[0].map(question => this.allQuestions.push(question));
         question[1].map(option => this.allOptions.push(option));
         question[2].map(green => this.greens.push(green));
@@ -43,7 +44,7 @@ export class TestComponent implements OnInit {
           this.data.push([this.allQuestions[i] , this.allOptions[i],this.greens[i]]); 
         }
         this.ok = true;
-        this.form._id = this.user.id ;
+        this.form._candidat = this.user.id ;
       })
   })
   }
@@ -54,7 +55,11 @@ export class TestComponent implements OnInit {
       this.applicatonService.submit_application(this.form).subscribe(err => {
         console.log(err)
       });
-      //this.router.navigate(['candidate']);
+      this.testSubmitted = true ;
+      setTimeout(()=>{
+        this.router.navigate(['home']);
+      }, 5000);
+      
 
   }
 
