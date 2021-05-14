@@ -273,38 +273,38 @@
     <div class="container">
     <div class="row">
 
-    <div class="col-md-3 col-sm-6 col-xs-12" *ngIf="total_offers">
+    <div class="col-md-3 col-sm-6 col-xs-12">
     <div class="counting">
     <div class="icon">
     <i class="ti-announcement"></i>
     </div>
     <div class="desc">
     <h2>Offers</h2>
-    <h1 class="counter">{{total_offers}}</h1>
+    <h1 class="counter" *ngIf="total_offers">{{total_offers}}</h1>
     </div>
     </div>
     </div>
 
-    <div class="col-md-3 col-sm-6 col-xs-12" *ngIf="total_candidates">
+    <div class="col-md-3 col-sm-6 col-xs-12">
     <div class="counting">
     <div class="icon">
     <i class="ti-id-badge"></i>
     </div>
     <div class="desc">
     <h2>Candidates</h2>
-    <h1 class="counter">{{total_candidates}}</h1>
+    <h1 class="counter" *ngIf="total_candidates">{{total_candidates}}</h1>
     </div>
     </div>
     </div>
 
-    <div class="col-md-3 col-sm-6 col-xs-12" *ngIf="total_recruiters">
+    <div class="col-md-3 col-sm-6 col-xs-12">
     <div class="counting">
     <div class="icon">
     <i class="ti-briefcase"></i>
     </div>
     <div class="desc">
     <h2>Recruiters</h2>
-    <h1 class="counter">{{total_recruiters}}</h1>
+    <h1 class="counter" *ngIf="total_recruiters">{{total_recruiters}}</h1>
     </div>
     </div>
     </div>
@@ -317,7 +317,7 @@
       </div>
       <div class="desc">
       <h2>Applications</h2>
-      <h1 class="counter">{{total_applications}}</h1>
+      <h1 class="counter" *ngIf="total_applications">{{total_applications}}</h1>
       </div>
       </div>
     </div>

@@ -112,7 +112,7 @@ export class ManageOffersComponent implements OnInit {
         this.isSuccessful = true;
         this.isApproveFailed = false;
   
-        //window.location.reload();
+        window.location.reload();
 
       },
       err => {

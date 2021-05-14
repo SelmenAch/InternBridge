@@ -49,12 +49,12 @@ const routes: Routes = [
   { path: 'candidate/create-cv', component: CreateCvComponent, canActivate:[AuthGuardService] },
   { path: 'candidate/edit-cv', component: EditCvComponent, canActivate:[AuthGuardService] },
   { path: 'candidate/applications', component: MyApplicationsComponent, canActivate:[AuthGuardService] },
-  { path: 'recruiter/change-password', component: ChangePasswordRecruiterComponent },
-  { path: 'recruiter/edit-profile', component: EditProfileComponent },
-  { path: 'recruiter/offers', component: OffersComponent },
-  { path: 'recruiter/post-offer', component: PostOfferComponent },
+  { path: 'recruiter/change-password', component: ChangePasswordRecruiterComponent, canActivate:[AuthGuardRecruiterService] },
+  { path: 'recruiter/edit-profile', component: EditProfileComponent, canActivate:[AuthGuardRecruiterService] },
+  { path: 'recruiter/offers', component: OffersComponent, canActivate:[AuthGuardRecruiterService] },
+  { path: 'recruiter/post-offer', component: PostOfferComponent, canActivate:[AuthGuardRecruiterService] },
   { path: 'internship/:id', component: InternshipDetailsComponent},
-  { path: 'recruiter/offers/:id', component: ApplicationsComponent},
+  { path: 'recruiter/offers/:id', component: ApplicationsComponent, canActivate:[AuthGuardRecruiterService] },
   { path: '', redirectTo: 'home', pathMatch: 'full' }
 ];
 
