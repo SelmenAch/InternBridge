@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { AdminService } from '../_services/admin.service';
 import { TokenStorageService } from '../_services/token-storage.service';
 import { UserService } from '../_services/user.service';
@@ -14,14 +14,16 @@ export class InternshipDetailsComponent implements OnInit {
   sub: any;
 	internship: any;
   id: any ;
+  public href: string = "";
 
-  constructor(private route: ActivatedRoute, private adminService: AdminService, private userService: UserService, private tokenStorage: TokenStorageService) { }
+  constructor(private route: ActivatedRoute, private adminService: AdminService, private userService: UserService, private tokenStorage: TokenStorageService, private router: Router) { }
 
   ngOnInit(): void {
     
       this.sub = this.route.params.subscribe((params) => {
 			const id = params['id'];
       this.id = id ;
+      this.href = this.router.url;
       
     this.adminService.get_offer_details(id).subscribe(
       data => {

@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import { TestService } from '../_services/test.service' ;
 import { TokenStorageService } from '../_services/token-storage.service';
 import { ActivatedRoute } from '@angular/router';
+import { UserService } from '../_services/user.service';
 
 @Component({
   selector: 'app-test',
@@ -12,6 +13,8 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./test.component.css']
 })
 export class TestComponent implements OnInit {
+  applications: any = [];
+
   ok = false ;
   responses: any = {};
   form: any = {};
@@ -22,7 +25,7 @@ export class TestComponent implements OnInit {
   user: any = {};
   keywords :any = [] ;
   testSubmitted: boolean ;
-  constructor(
+  constructor(private userService : UserService,
               public router: Router, private testService : TestService , 
               private tokenStorage: TokenStorageService, 
               private applicatonService : ApplicationService,
@@ -31,9 +34,14 @@ export class TestComponent implements OnInit {
               ){ 
         this.form._offer=this._Activatedroute.snapshot.paramMap.get("id");
             }
+
+            
   ngOnInit(): void {
     this.user = JSON.parse(this.tokenStorage.getUser());
-      this.testService.getTest("php,nodejs").subscribe(question => {
+
+    this.getApplications();
+
+        this.testService.getTest("php,nodejs").subscribe(question => {
         question[0].map(question => this.allQuestions.push(question));
         question[1].map(option => this.allOptions.push(option));
         question[2].map(green => this.greens.push(green));
@@ -55,7 +63,7 @@ export class TestComponent implements OnInit {
       });
       this.testSubmitted = true ;
       setTimeout(()=>{
-        this.router.navigate(['home']);
+        this.router.navigate(['candidate/applications']);
       }, 5000);
       
 
@@ -69,6 +77,22 @@ export class TestComponent implements OnInit {
       }
     }
     return (score / this.greens.length) * 100 ;
+  }
+
+  getApplications(): void {
+    console.log(this.user.id);
+    this.userService.get_applications(this.user.id)
+      .subscribe(
+        data => {
+
+          this.applications = data.filter(function (application) {
+            return (application.offer === this.form._offer);
+          });
+         
+        },
+        error => {
+          console.log(error);
+        });
   }
 
 }

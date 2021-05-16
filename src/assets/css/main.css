@@ -2226,6 +2226,9 @@ footer {
   font-weight: 700;
   color: #888;
 }
+.right-sideabr .indent li a {
+  margin-left: 15px;
+}
 .right-sideabr .lest li a:hover {
   color: #ff4f57;
 }

@@ -27,11 +27,16 @@
     <div class="inner-box">
     <ul class="lest">
     <li><a href="/recruiter" routerLink="/recruiter" >My Profile</a></li>
+    </ul>
+    <ul class="lest indent">
     <li><a href="/recruiter/edit-profile" routerLink="/recruiter/edit-profile">Edit Profile</a></li>
     <li><a href="/recruiter/change-password" routerLink="/recruiter/change-password">Change Password</a></li>
     </ul>
     <ul class="lest item">
-    <li><a class="active">Manage offers</a></li>
+    <li><a href="/recruiter/offers" routerLink="/recruiter/offers">Manage offers</a></li>
+    <ul class="lest indent">
+    <li><a class="active">Applications</a></li>
+    </ul>
     <li><a href="/recruiter/post-offer" routerLink="/recruiter/post-offer">Post an offer</a></li>
     </ul>
     <ul class="lest">
@@ -73,7 +78,7 @@
                         </td>
                         <td>
                             <a class="actions" *ngIf="application.status == 'Pending'" href="#approveModal{{application._id}}" data-toggle="modal" data-target="approveModal{{application.candidat}}"><i class="ti-check-box"></i></a>
-                            <a class="actions" *ngIf="application.status == 'Pending'" href="#rejectModal{{application._id}}" data-toggle="modal" data-target="rejectModal{{application.candidat}}"><i class="ti-na"></i></a> -->
+                            <a class="actions" *ngIf="application.status == 'Pending'" href="#rejectModal{{application._id}}" data-toggle="modal" data-target="rejectModal{{application.candidat}}"><i class="ti-na"></i></a>
                         </td>
 
                     <!-- Approve Modal -->

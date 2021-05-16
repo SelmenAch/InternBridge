@@ -1,0 +1,94 @@
+<div class="page-header" style="background: url(assets/img/banner1.jpg);">
+    <div class="container">
+    <div class="row">
+    <div class="col-md-12">
+    <div class="breadcrumb-wrapper">
+    <h2 class="product-title">Admin Board</h2>
+    <ol class="breadcrumb">
+    <li><a href="#"><i class="ti-home"></i> Home</a></li>
+    <li><a href="/admin" routerLink="/admin">Dashboard</a></li>
+    <li class="current">Manage Tests</li>
+    </ol>
+  
+    </div>
+    </div>
+    </div>
+    </div>
+  </div>
+  
+  
+  <div id="content">
+    <div class="container">
+    <div class="row">
+    <div class="col-md-3 col-sm-3 col-xs-12">
+    <div class="right-sideabr">
+    
+    <div class="inner-box">
+        <ul class="lest">
+            <li><a href="/admin" routerLink="/admin">Dashboard</a></li>
+        <!-- <li><a href="/admin/change-password" routerLink="/admin/change-password">Change Password</a></li> -->
+        </ul>
+        <ul class="lest item">
+            <li><a href="/admin/manage-candidates" routerLink="/admin/manage-candidates">Manage Candidates</a></li>
+            <li><a href="/admin/manage-recruiters" routerLink="/admin/manage-recruiters">Manage Recruiters</a></li>
+            <li><a href="/admin/manage-offers" routerLink="/admin/manage-offers">Manage Offers</a></li>
+            <li><a class="active">Manage Tests</a></li>
+        </ul>
+    <ul class="lest">
+    <li><a href (click)="logout()">Logout</a></li>
+    </ul>
+    </div>
+    </div>
+    </div>
+  
+  
+    <div class="col-md-9 col-sm-9 col-xs-12">
+        <div class="job-alerts-item">
+        <h3 class="alerts-title">Manage Tests</h3>
+
+        <div class="pull-right">
+            <a (click)="generateTests()" class="btn btn-common">Generate tests</a>
+        </div>    
+
+        <div class="alert alert-warning" *ngIf="tests.length == 0">
+           <p>No tests are available. Generate tests first.</p>       
+        </div>
+
+        <div class="alert alert-success" *ngIf="isSuccessful">
+            <p>Tests generated successfully!</p>       
+         </div>
+
+        
+
+
+        
+        <div class="table-responsive row">
+            <table *ngIf="tests" class="table table-bordered table-hover" id="tests-table">
+                <thead class="thead-default thead-lg">
+                    <tr>
+                        <th>ID</th>
+                        <th>Type</th>
+                        <th>Total questions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let test of tests; let i=index">
+                        <td>{{i+1}}</td>
+                        <td>{{test.type}}</td>
+                        <td>{{test.questions}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        
+        </div>
+        </div>
+        </div>
+        </div>
+        </div>
+
+
+        
+  
+  
+  

@@ -73,4 +73,16 @@ export class AdminService {
     }, httpOptions);
   }
 
+  generate_tests(): Observable<any> {
+    return this.http.post(API_URL + 'generateTests', {
+    }, httpOptions);
+  }
+
+  get_tests(): Observable<any> {
+    return this.http.post(API_URL + '', {
+    }, httpOptions);
+  }
+
+  
+
 }

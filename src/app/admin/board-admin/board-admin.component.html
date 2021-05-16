@@ -25,12 +25,14 @@
   <div class="inner-box">
   <ul class="lest">
   <li><a class="active">Dashboard</a></li>
-  <li><a href="/admin/change-password" routerLink="/admin/change-password">Change Password</a></li>
+  <!-- <li><a href="/admin/change-password" routerLink="/admin/change-password">Change Password</a></li> -->
   </ul>
   <ul class="lest item">
   <li><a href="/admin/manage-candidates" routerLink="/admin/manage-candidates">Manage Candidates</a></li>
   <li><a href="/admin/manage-recruiters" routerLink="/admin/manage-recruiters">Manage Recruiters</a></li>
   <li><a href="/admin/manage-offers" routerLink="/admin/manage-offers">Manage Offers</a></li>
+  <li><a href="/admin/manage-tests" routerLink="/admin/manage-tests">Manage Tests</a></li>
+
   </ul>
   <ul class="lest">
   <li><a href (click)="logout()">Logout</a></li>
@@ -93,7 +95,7 @@
           <h1 class="counter">{{offers}}</h1>
           </a>
         </div>
-        <div class="col-md-3 col-sm-3 col-xs-12 f-category">
+        <div class="col-md-3 col-sm-3 col-xs-12 f-category" *ngIf="applications">
           <a>
           <div class="icon">
           <i class="ti-check-box"></i>

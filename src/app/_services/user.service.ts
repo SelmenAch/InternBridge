@@ -58,7 +58,7 @@ export class UserService {
 
   get_applications(id): Observable<any> {
     return this.http.post(API_URL + 'get_applications', {
-      candidate: id
+      _id: id
     }, httpOptions);
   }
 

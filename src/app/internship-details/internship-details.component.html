@@ -75,11 +75,47 @@
     </ul>
     -->
 
-    <a [routerLink]="['/offers', id,'test']" class="btn btn-common">Apply Now</a>
+    <a href="#startTestModal" data-toggle="modal" data-target="#startTestModal" class="btn btn-common">Apply Now</a>
+
+    <!-- Start test Modal -->
+                    
+    <div class="modal fade" id="startTestModal" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered" >
+        <div class="modal-content">
+            <div class="modal-header">
+            <h1>Apply for this offer</h1>
+            </div>
+            <div class="modal-body">
+                <div class="page-ads box">
+
+                    <p>In order to submit your application for this offer, you must pass a test to prove your technical capabilities.</p>
+                    <p>Good luck!</p>
+
+                    <div class="modal-footer">
+                    <button class="btn btn-cancel" data-dismiss="modal">Cancel</button>
+                    <button class="btn btn-common log-btn" data-dismiss="modal" [routerLink]="['/internship', id,'test']">Start test</button>
+                    <br><br>
+                    
+                    <div class="alert alert-warning">
+                        Test topics : {{internship.keywords}}
+                    </div>
+               
+                    </div>
+                    
+                </div>
+                
+            </div>
+        </div>
+        </div>
+    </div>
+
+    <!-- End of start test modal -->
+
     </div>
     </div>
     </div>
 
+    
     </div>
     <div class="col-md-4 col-sm-12 col-xs-12">
     <aside>
@@ -123,7 +159,7 @@
     
      
     <span><a class="btn btn-border btn-sm" href="{{internship.company.website}}" target="_blank"><i class="ti-link"></i> Website</a></span>
-   
+                        
     </div>
     </div>
     </div>

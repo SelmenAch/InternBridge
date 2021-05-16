@@ -48,8 +48,16 @@ export class MyApplicationsComponent implements OnInit {
     this.userService.get_applications(this.userdata.id)
       .subscribe(
         data => {
+          
           this.applications = data;
-          console.log(data);
+          console.log(this.applications);
+          this.applications.forEach((elem) => {
+            var index = elem.applyDate.indexOf('T');
+            elem.applyDate = elem.applyDate.substring(0, index);
+            elem.applyDate = elem.applyDate.split("-").reverse().join("/");
+            
+        });
+
         },
         error => {
           console.log(error);

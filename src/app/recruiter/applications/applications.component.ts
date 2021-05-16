@@ -83,7 +83,15 @@ export class ApplicationsComponent implements OnInit {
             of = offer ;
             data.map(dat=> dat.title=of.title) ;
             console.log(data);
+
             this.applications = data;
+  
+            this.applications.forEach((elem) => {
+              var index = elem.applyDate.indexOf('T');
+              elem.applyDate = elem.applyDate.substring(0, index);
+              elem.applyDate = elem.applyDate.split("-").reverse().join("/");
+              
+          });
           })
         },
         error => {

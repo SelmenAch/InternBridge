@@ -37,6 +37,7 @@ import { ManageOffersComponent } from './admin/manage-offers/manage-offers.compo
 import { InternshipDetailsComponent } from './internship-details/internship-details.component';
 import { MyApplicationsComponent } from './candidate/my-applications/my-applications.component';
 import { ApplicationsComponent } from './recruiter/applications/applications.component';
+import { ManageTestsComponent } from './admin/manage-tests/manage-tests.component';
 
 
 
@@ -67,7 +68,8 @@ import { ApplicationsComponent } from './recruiter/applications/applications.com
     InternshipDetailsComponent,
     MyApplicationsComponent,
     ApplicationsComponent,
-    TestComponent
+    TestComponent,
+    ManageTestsComponent
   ],
   imports: [
     BrowserModule,
