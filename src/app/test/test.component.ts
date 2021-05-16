@@ -33,9 +33,7 @@ export class TestComponent implements OnInit {
             }
   ngOnInit(): void {
     this.user = JSON.parse(this.tokenStorage.getUser());
-    this.offerService.getKeywords(this.form._offer).subscribe(keyword => {
-      this.keywords = keyword ;
-      this.testService.getTest(this.keywords.join(',')).subscribe(question => {
+      this.testService.getTest("php,nodejs").subscribe(question => {
         question[0].map(question => this.allQuestions.push(question));
         question[1].map(option => this.allOptions.push(option));
         question[2].map(green => this.greens.push(green));
@@ -43,10 +41,10 @@ export class TestComponent implements OnInit {
         for (let i=0 ; i< this.allQuestions.length ; i++) {
           this.data.push([this.allQuestions[i] , this.allOptions[i],this.greens[i]]); 
         }
+        console.log(this.data);
         this.ok = true;
         this.form._candidat = this.user.id ;
       })
-  })
   }
   onSubmit() {
       console.log(this.responses);
