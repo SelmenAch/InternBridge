@@ -14,7 +14,6 @@ export class InternshipDetailsComponent implements OnInit {
   sub: any;
 	internship: any;
   id: any ;
-  public href: string = "";
 
   constructor(private route: ActivatedRoute, private adminService: AdminService, private userService: UserService, private tokenStorage: TokenStorageService, private router: Router) { }
 
@@ -23,7 +22,6 @@ export class InternshipDetailsComponent implements OnInit {
       this.sub = this.route.params.subscribe((params) => {
 			const id = params['id'];
       this.id = id ;
-      this.href = this.router.url;
       
     this.adminService.get_offer_details(id).subscribe(
       data => {

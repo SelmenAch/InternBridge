@@ -13,7 +13,8 @@ import { UserService } from '../_services/user.service';
   styleUrls: ['./test.component.css']
 })
 export class TestComponent implements OnInit {
-  applications: any = [];
+  applications: any = {};
+  test_allowed: boolean = false;
 
   ok = false ;
   responses: any = {};
@@ -39,8 +40,8 @@ export class TestComponent implements OnInit {
   ngOnInit(): void {
     this.user = JSON.parse(this.tokenStorage.getUser());
 
-    this.getApplications();
-
+    this.verifyApplications();
+     
         this.testService.getTest("php,nodejs").subscribe(question => {
         question[0].map(question => this.allQuestions.push(question));
         question[1].map(option => this.allOptions.push(option));
@@ -79,20 +80,25 @@ export class TestComponent implements OnInit {
     return (score / this.greens.length) * 100 ;
   }
 
-  getApplications(): void {
-    console.log(this.user.id);
-    this.userService.get_applications(this.user.id)
+  verifyApplications(): void {
+
+    const offer_id = this._Activatedroute.snapshot.paramMap.get("id");
+    var application_found : boolean;
+
+    
+      this.userService.get_applications(this.user.id)
       .subscribe(
         data => {
 
           this.applications = data.filter(function (application) {
-            return (application.offer === this.form._offer);
-          });
-         
+            application_found = application.offer._id === offer_id;
+          });  
+
+          this.test_allowed = !application_found;
         },
         error => {
           console.log(error);
         });
-  }
 
+  }
 }

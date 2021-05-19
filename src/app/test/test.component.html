@@ -19,11 +19,11 @@
   <div class="container">
   <div class="row">
 
-  <div class="alert alert-warning">
+  <div class="alert alert-warning" *ngIf="!test_allowed">
       You already applied for this offer! You can't pass another test.
   </div>
 
-  <header class="jumbotron" *ngIf="!applications">
+  <header class="jumbotron" *ngIf="test_allowed">
     <form (ngSubmit)="onSubmit()" #f="ngForm" novalidate>
     <div *ngIf=ok>
       <div class="form-group" *ngFor="let d of data ;let i=index;">
